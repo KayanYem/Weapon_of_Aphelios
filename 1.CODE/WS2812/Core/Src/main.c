@@ -33,8 +33,10 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-#define SAVE_MARK_ADDR 0x0800F000		//fresh 写入标记
+#define SAVE_MARK_ADDR 0x0800F000		//fresh 更新标记
 #define SAVE_ADDR 0x0800F200				//fresh 写入
+
+#define LED_NUM		5
 /* USER CODE END PTD */	
 
 /* Private define ------------------------------------------------------------*/
@@ -55,19 +57,8 @@ uint32_t t;
 uint16_t i,j,temp[3], flag=0;
 
 uint16_t flash_init_temp[2]={0};
-uint16_t SAVE_MARK[2] = {11,12};
+uint16_t SAVE_MARK[2] = {11,22};
 uint16_t SAVE_BUFFER[24];
-
-uint16_t FlashTest[20] = 
-{
-	1,2,3,4,5,6,7,8,9,10,
-	11,12,13,14,15,16,17,18,19,20
-};
-
-
-uint16_t FlashTest0;
-uint16_t FlashTest1 = 1;
-uint16_t FlashTest2 = 2;
 
 //自定义rgb颜色数组			
 /****RGB颜色表****
@@ -84,18 +75,18 @@ uint16_t FlashTest2 = 2;
 //uint8_t D_green[3] = {48,128,20};
 //uint8_t D_blue[3] = {25,25,112};
 */
-uint8_t change_rgb_init[8][3] = {
-	{255,255,255},{255,0,0},{0,255,0},{0,0,255},
-	{0,255,255},{255,0,255},{255,255,0},{255,97,0},
+
+uint8_t change_rgb_init[LED_NUM][3] = {
+	{50,225,50},
+	{250,50,125},
+	{131,71,205},
+	{68,117,249},
+	{214,235,255}
 };
 
-uint8_t change_rgb[8][3];
+uint8_t change_rgb[LED_NUM][3];
 
 uint8_t rgb0[][3] = {0,0,0};
-uint8_t rgb_white[][3] = {50,50,50};
-uint8_t rgb_red[][3] = {50,0,0};
-uint8_t rgb_green[][3] = {0,50,0};
-uint8_t rgb_blue[][3] = {0,0,50};
 
 //static uint16_t fac_ms=0;							//ms延时倍乘数,在ucos下,代表每个节拍的ms数
 
@@ -145,10 +136,10 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
-   printf("串口打印正常!\r\n");
+//   printf("串口打印正常!\r\n");
 
 	//将初始化数据赋值 PWM输出数组 和 flash存储数组
-	for(i=0;i<8;i++)
+	for(i=0;i<LED_NUM;i++)
 	{
 		for(j=0;j<3;j++)
 		{
@@ -159,22 +150,22 @@ int main(void)
 	
 	//读取判断位
 	STMFLASH_Read(SAVE_MARK_ADDR, flash_init_temp, 2);
-	printf("%d\t",flash_init_temp[0]);
-	printf("%d\r\n",flash_init_temp[1]);
+//	printf("%d\t",flash_init_temp[0]);
+//	printf("%d\r\n",flash_init_temp[1]);
 	
 	
 	//如果写入，则读取flash数据
 	if(flash_init_temp[0] == SAVE_MARK[0] && flash_init_temp[1] == SAVE_MARK[1])
 	{
-		printf("read from flash\r\n");
-		STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, 24);
-		for(i=0;i<24;i++)
-		{
-			printf("%d ",SAVE_BUFFER[i]);
-		}
-		printf("\r\n");
+//		printf("read from flash\r\n");
+		STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
+//		for(i=0;i<LED_NUM*3;i++)
+//		{
+//			printf("%d ",SAVE_BUFFER[i]);
+//		}
+//		printf("\r\n");
 		
-		for(i=0;i<8;i++)
+		for(i=0;i<LED_NUM;i++)
 		{
 			for(j=0;j<3;j++)
 			{
@@ -185,28 +176,29 @@ int main(void)
 	//如果未写入，则写出初始化数据
 	else
 	{
-		printf("init flash\r\n");
-		STMFLASH_Write(SAVE_MARK_ADDR, SAVE_MARK, 2);
-		STMFLASH_Read(SAVE_MARK_ADDR, SAVE_MARK, 2);
-		for(i=0;i<2;i++)
-		{
-			printf("%d ",SAVE_MARK[i]);
-		}
-		printf("\r\n");
+//		printf("init flash\r\n");
+		STMFLASH_Write(SAVE_MARK_ADDR, SAVE_MARK, 2);				//FLASH更新标志位写入
+//		STMFLASH_Read(SAVE_MARK_ADDR, SAVE_MARK, 2);
+//		for(i=0;i<2;i++)
+//		{
+//			printf("%d ",SAVE_MARK[i]);
+//		}
+//		printf("\r\n");
 		
-		STMFLASH_Write(SAVE_ADDR, SAVE_BUFFER, 24);
-		STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, 24);
-		for(i=0;i<24;i++)
-		{
-			printf("%d ",SAVE_BUFFER[i]);
-		}
-		printf("\r\n");
+		STMFLASH_Write(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);	//flash颜色数据写入
+//		STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
+//		for(i=0;i<LED_NUM*3;i++)
+//		{
+//			printf("%d ",SAVE_BUFFER[i]);
+//		}
+//		printf("\r\n");
 	}
 	
+	//setoff all light
 	WS2812_led_send(rgb0,8);
 	HAL_Delay(5);
 	
-	WS2812_ledsingle_send(change_rgb,8);
+	WS2812_ledsingle_send(change_rgb,LED_NUM);
 	HAL_Delay(5);
 	
   /* USER CODE END 2 */
@@ -217,7 +209,7 @@ int main(void)
   { 
 		if(flag == 1)
 		{
-			for(i=0;i+1<8;i++)
+			for(i=0;i+1<LED_NUM;i++)
 			{
 				for(j=0;j<3;j++)
 				{
@@ -227,35 +219,33 @@ int main(void)
 				}
 			}
 			
-			WS2812_ledsingle_send(change_rgb,8);
+			WS2812_ledsingle_send(change_rgb,LED_NUM);
 			HAL_Delay(200);
 			
 			//write flash
-			for(i=0;i<8;i++)
+			for(i=0;i<LED_NUM;i++)
 			{
 				for(j=0;j<3;j++)
 				{
 					SAVE_BUFFER[i*3+j] = change_rgb[i][j];
 				}
 			}
-			printf("key1 press \r\n");
-			STMFLASH_Write(SAVE_ADDR, SAVE_BUFFER, 24);
-			STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, 24);
-			for(i=0;i<24;i++)
-			{
-				printf("%d ",SAVE_BUFFER[i]);
-			}
+//			printf("key1 press \r\n");
+			STMFLASH_Write(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
+//			STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
+//			for(i=0;i<LED_NUM*3;i++)
+//			{
+//				printf("%d ",SAVE_BUFFER[i]);
+//			}
+//			printf("\r\n");
 			
 			//重置按键标志位
-			printf("\r\n");
-			
 			flag = 0;
 		}
 		
 		if(flag == 2)
 		{
-			for(i=1
-				;i+1<8;i++)
+			for(i=1;i+1<LED_NUM;i++)
 			{
 				for(j=0;j<3;j++)
 				{
@@ -264,25 +254,25 @@ int main(void)
 					change_rgb[i+1][j] = temp[j];
 				}
 			}
-			WS2812_ledsingle_send(change_rgb,8);
+			WS2812_ledsingle_send(change_rgb,LED_NUM);
 			HAL_Delay(200);
 			
 			//write flash
-			for(i=0;i<8;i++)
+			for(i=0;i<LED_NUM;i++)
 			{
 				for(j=0;j<3;j++)
 				{
 					SAVE_BUFFER[i*3+j] = change_rgb[i][j];
 				}
 			}
-			printf("key2 press \r\n");
-			STMFLASH_Write(SAVE_ADDR, SAVE_BUFFER, 24);
-			STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, 24);
-			for(i=0;i<24;i++)
-			{
-				printf("%d ",SAVE_BUFFER[i]);
-			}
-			printf("\r\n");
+//			printf("key2 press \r\n");
+			STMFLASH_Write(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
+//			STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
+//			for(i=0;i<LED_NUM*3;i++)
+//			{
+//				printf("%d ",SAVE_BUFFER[i]);
+//			}
+//			printf("\r\n");
 			
 			//重置按键标志位
 			flag = 0;
@@ -341,17 +331,15 @@ void SystemClock_Config(void)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	HAL_Delay(10);
-//	if(GPIO_Pin == GPIO_PIN_1 || GPIO_Pin == GPIO_PIN_2){
-//		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-//	}
+	//key1 pressed
 	if(GPIO_Pin == GPIO_PIN_1){
 		flag = 1;
-//		WS2812_led_send(rgb_red,8);
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
 	}
+	
+	//key2 pressed
 	if(GPIO_Pin == GPIO_PIN_2){
 		flag = 2;
-//		WS2812_led_send(rgb_blue,8);
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 	}
 }
