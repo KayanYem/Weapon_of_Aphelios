@@ -1,0 +1,9 @@
+Added Component: Designator=K1(SMD-6X6X6)
+Added Component: Designator=K2(SMD-6X6X6)
+Added Pin To Net: NetName=KEY1 Pin=K1-1
+Added Pin To Net: NetName=GND Pin=K1-3
+Added Pin To Net: NetName=KEY2 Pin=K2-1
+Added Pin To Net: NetName=GND Pin=K2-3
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component K1 KEY
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component K2 KEY
+Added Room: Name=Weapon_of_Aphelios

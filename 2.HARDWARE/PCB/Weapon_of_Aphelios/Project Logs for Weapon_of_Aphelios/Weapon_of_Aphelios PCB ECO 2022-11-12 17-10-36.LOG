@@ -1,0 +1,51 @@
+Added Component: Designator=L1(IND-SMD_L4.5-W4.1_TMPA0402SP)
+Add component (AddParameter): Name = "Add into BOM"; Value = "yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Convert to PCB"; Value = "yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet"; Value = "https://atta.szlcsc.com/upload/public/pdf/source/20200917/C305203_F071C71654DE86DE842DF29DC4BB6A78.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "DC Resistance (DCR)"; Value = "215m¦¸"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Device"; Value = "TMPC0402HP-100MG-Z02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "JLCPCB Part Class"; Value = "Extended Part"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LCSC Part Name"; Value = "10uH ¡À20% 1.4A 215m¦¸"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Ì¨Çì"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part"; Value = "TMPC0402HP-100MG-Z02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Name"; Value = "10uH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Current"; Value = "1.4A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Footprint"; Value = "SMD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part"; Value = "C305203"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Symbol"; Value = "TMPC0402HP-100MG-Z02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "¡À20%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uH"; VariantName = "[No Variations]"
+Added Component: Designator=U2(SOT-223-4_L6.5-W3.5-P2.30-LS7.0-BR)
+Add component (AddParameter): Name = "BOM_Assembly Type"; Value = "smtWeld"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Manufacturer"; Value = "KEXIN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Manufacturer Part"; Value = "AMS1117-3.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Paste Type"; Value = "expand"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Supplier"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Supplier Part"; Value = "C369933"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contributor"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "spicePre"; Value = "U"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "spiceSymbolName"; Value = "AMS1117-3.3_C369933"; VariantName = "[No Variations]"
+Added Component: Designator=X1(OSC-SMD_4P-L3.2-W2.5-BL)
+Add component (AddParameter): Name = "BOM_Assembly Type"; Value = "smtWeld"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Manufacturer"; Value = "Zhejiang Abel Elec"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Manufacturer Part"; Value = "TAXM8M4RDBCCT2T"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Paste Type"; Value = "expand"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Supplier"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Supplier Part"; Value = "C400090"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contributor"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "nameAlias"; Value = "Frequency"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "spicePre"; Value = "X"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "spiceSymbolName"; Value = "TAXM8M4RDBCCT2T"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetD2_A Pin=L1-1
+Added Pin To Net: NetName=BAT Pin=L1-2
+Added Pin To Net: NetName=GND Pin=U2-1
+Added Pin To Net: NetName=3v3 Pin=U2-2
+Added Pin To Net: NetName=5V Pin=U2-3
+Added Pin To Net: NetName=3v3 Pin=U2-4
+Added Pin To Net: NetName=NetC3_2 Pin=X1-1
+Added Pin To Net: NetName=NetC1_2 Pin=X1-3
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component L1 10uH
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component U2 AMS1117-3.3_C369933
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component X1 8MHz
+Added Room: Name=Weapon_of_Aphelios

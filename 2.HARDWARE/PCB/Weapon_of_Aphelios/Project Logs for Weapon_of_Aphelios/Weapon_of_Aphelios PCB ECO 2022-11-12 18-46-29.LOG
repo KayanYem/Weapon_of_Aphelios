@@ -1,0 +1,9 @@
+Added Component: Designator=C19(0603C)
+Added Component: Designator=C20(0603C)
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=3v3 Pin=C19-2
+Added Pin To Net: NetName=GND Pin=C20-1
+Added Pin To Net: NetName=5V Pin=C20-2
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component C19 10uF
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component C20 10uF
+Added Room: Name=Weapon_of_Aphelios

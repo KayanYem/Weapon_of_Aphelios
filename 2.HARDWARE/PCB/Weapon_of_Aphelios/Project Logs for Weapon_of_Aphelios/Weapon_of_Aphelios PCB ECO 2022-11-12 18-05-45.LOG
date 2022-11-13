@@ -1,0 +1,15 @@
+Added Component: Designator=SW1(SW-TH_SK12D07VG3)
+Add component (AddParameter): Name = "BOM_JLCPCB Part Class"; Value = "Extended Part"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Manufacturer"; Value = "SHOU HAN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Manufacturer Part"; Value = "SK12D07VG3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Supplier"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "BOM_Supplier Part"; Value = "C431547"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Contributor"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "spicePre"; Value = "S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "spiceSymbolName"; Value = "SK12D07VG3_C431547"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=5V Pin=SW1-1
+Added Pin To Net: NetName=VOUT Pin=SW1-2
+Added Pin To Net: NetName=GND Pin=SW1-4
+Added Pin To Net: NetName=GND Pin=SW1-5
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component SW1 SK12D07VG3_C431547
+Added Room: Name=Weapon_of_Aphelios

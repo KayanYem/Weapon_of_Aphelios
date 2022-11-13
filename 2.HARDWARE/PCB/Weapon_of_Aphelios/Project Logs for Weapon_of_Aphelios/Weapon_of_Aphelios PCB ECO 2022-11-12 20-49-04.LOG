@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=SWCLK Pin=P1-5
+Removed Pin From Net: NetName=SWDIO Pin=P1-7
+Added Pin To Net: NetName=SWDIO Pin=P1-5
+Added Pin To Net: NetName=SWCLK Pin=P1-7
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component P1 Header 4X2
+Added Room: Name=Weapon_of_Aphelios
