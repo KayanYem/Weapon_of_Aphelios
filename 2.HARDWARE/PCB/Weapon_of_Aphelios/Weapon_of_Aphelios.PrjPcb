@@ -30,7 +30,7 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=0
-OutputPath=Project Outputs for Weapon_of_Aphelios
+OutputPath=
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -74,7 +74,7 @@ GenerateClassCluster=0
 DocumentUniqueId=KRLYMBBY
 
 [Document3]
-DocumentPath=Weapon_of_Aphelios.IntLib
+DocumentPath=Weapon_of_Aphelios.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -91,7 +91,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document4]
-DocumentPath=Weapon_of_Aphelios.OutJob
+DocumentPath=Weapon_of_Aphelios.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -158,7 +158,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=-1
 
 [Generic_EDE]
-OutputDir=Project Outputs for Weapon_of_Aphelios
+OutputDir=
 
 [OutputGroup1]
 Name=Netlist Outputs
