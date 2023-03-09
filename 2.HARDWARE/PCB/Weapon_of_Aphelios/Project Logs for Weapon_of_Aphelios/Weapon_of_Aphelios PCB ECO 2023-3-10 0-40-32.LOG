@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=GND Pin=SW3-4
+Removed Pin From Net: NetName=GND Pin=SW3-5
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component C15 10uF
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component C16 0.1uF
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component C19 22uF
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component C20 10uF
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component D1 SS34-MS
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component D3 SS34-MS
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component D5 STDBY
+Added Member To Class: ClassName=Weapon_of_Aphelios Member=Component SW1 TL3301EF100QG
+Added Room: Name=Weapon_of_Aphelios
