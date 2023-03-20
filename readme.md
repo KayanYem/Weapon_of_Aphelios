@@ -12,10 +12,10 @@
 
 **展示**
 
-![图1](../Weapon_of_Aphelios/5.DISPLAY/pic1.jpg)
-![图2](../Weapon_of_Aphelios/5.DISPLAY/pic2.jpg)
-![图3](../Weapon_of_Aphelios/5.DISPLAY/pic3.jpg)
-![video](../Weapon_of_Aphelios/5.DISPLAY/video.gif)
+![图1](/5.DISPLAY/pic1.jpg)
+![图2](/5.DISPLAY/pic2.jpg)
+![图3](/5.DISPLAY/pic3.jpg)
+![video](/5.DISPLAY/video.gif)
 
 
 ```
