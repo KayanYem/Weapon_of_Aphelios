@@ -226,7 +226,7 @@ int main(void)
 					SAVE_BUFFER[i*3+j] = change_rgb[i][j];
 				}
 			}
-//			printf("key1 press \r\n");
+			printf("key1 press \r\n");
 			STMFLASH_Write(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
 //			STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
 //			for(i=0;i<LED_NUM*3;i++)
@@ -261,7 +261,7 @@ int main(void)
 					SAVE_BUFFER[i*3+j] = change_rgb[i][j];
 				}
 			}
-//			printf("key2 press \r\n");
+			printf("key2 press \r\n");
 			STMFLASH_Write(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
 //			STMFLASH_Read(SAVE_ADDR, SAVE_BUFFER, LED_NUM*3);
 //			for(i=0;i<LED_NUM*3;i++)
@@ -326,7 +326,7 @@ void SystemClock_Config(void)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	HAL_Delay(10);
-//	printf("GPIO_Pin %d \r\n",GPIO_Pin);
+	printf("GPIO_Pin %d \r\n",GPIO_Pin);
 //	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 	//key1 pressed
 	if(GPIO_Pin == GPIO_PIN_1){
